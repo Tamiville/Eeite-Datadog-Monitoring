@@ -1,0 +1,15 @@
+- hosts: dev
+  become: yes
+  roles:
+    - { role: datadog.datadog, become: yes }
+  vars:
+    datadog_api_key: 
+    with_items:
+       - "{{ datadog_api_key }}"
+
+# ==== To Uninstall Datadog =====#
+# - hosts: dev
+#   become: yes
+#   tasks:
+#     - name: uninstall datadog
+#       apt: name=datadog-agent stae=absent
